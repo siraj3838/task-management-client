@@ -25,7 +25,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center md:gap-96 lg:gap-36">
-                        {/* Website Logo */}
+                        {/* Website Logo Here */}
                         <Link to={'/'}>
                             <img className="w-44" src="https://i.ibb.co/YPpX4Zw/1694337400-devtown-removebg-preview.png" alt="" />
                         </Link>

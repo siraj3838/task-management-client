@@ -54,7 +54,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end hidden md:flex">
-
+                    <Link className="/letsExplore">
+                        <button className="hover:bg-[#b69e4aec] bg-[#edc843ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-black font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md">Let’s Explore</button>
+                    </Link>
                 </div>
             </div>
         </div>

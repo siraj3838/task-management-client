@@ -10,11 +10,27 @@ const Navbar = () => {
         >
             Home
         </NavLink>
+        <NavLink
+            to="/about"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "btn hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 btn btn-outline hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
+            }
+        >
+            About
+        </NavLink>
+        <NavLink
+            to="/contact"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "btn hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 btn btn-outline hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
+            }
+        >
+            Contact
+        </NavLink>
 
     </>
     return (
         <div className="">
-            <div className="navbar max-w-screen-xl mx-auto lg:-mt-5">
+            <div className="navbar px-5 mx-auto fixed z-10 max-w-screen-2xl mb-10 top-0">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -32,13 +48,15 @@ const Navbar = () => {
 
                     </div>
                 </div>
-                <div className="navbar-end hidden md:flex">
-                    <ul className="menu menu-horizontal px-1 flex items-center gap-9">
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="flex items-center gap-12">
                         {navList}
                     </ul>
                 </div>
-            </div>
+                <div className="navbar-end hidden md:flex">
 
+                </div>
+            </div>
         </div>
     );
 };

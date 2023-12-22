@@ -1,8 +1,10 @@
-# React + Vite
+● My Website Name: DevTown Task Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+● My Website Link: https://devtown-task.web.app
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1/ This project of mine was about task management. In this project of mine you will get marquee in Frontend and you can see the features of different tasks.
+
+2/ In this project I used AOS animation to enhance the sound. And use Swiper js in Banner.
+
+3/ For data load in this project I used Axios and TanStack query to display fast data. And for each form I used React Hook Form package.

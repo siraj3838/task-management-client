@@ -69,7 +69,7 @@ const Register = () => {
                 <div className="hero-overlay bg-opacity-90"></div>
                 <div className="lg:ml-[670px] lg:mt-20">
                     <div className="">
-                        <div className="px-10 py-2 border-4 rounded-md shadow-2xl">
+                        <div data-aos="flip-left" data-aos-duration="2400" className="px-10 py-2 border-4 rounded-md shadow-2xl">
                             <form onSubmit={handleSubmit(onSubmit)} className="font-medium">
                                 <h3 className="text-accent text-center text-3xl font-bold my-2">Create Account</h3>
                                 <div className="form-control">

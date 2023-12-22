@@ -45,7 +45,7 @@ const Login = () => {
 
                         <div className="my-20">
                             
-                            <div className="px-10 py-4 border-4 rounded-md shadow-2xl">
+                            <div data-aos="flip-left" data-aos-duration="2400" className="px-10 py-4 border-4 rounded-md shadow-2xl">
                                 <form onSubmit={handleSubmit(onSubmit)} className=" font-medium">
                                     <h3 className="text-accent text-center text-3xl font-bold my-5">Login Here</h3>
 

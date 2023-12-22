@@ -43,7 +43,7 @@ const CreateTask = () => {
             </Helmet>
 
             <div className="flex">
-                <div className="w-3/5 mx-auto text-gray-400">
+                <div className="w-3/5 mx-auto text-gray-400" data-aos="flip-left" data-aos-duration="2400">
                     <h3 className="text-accent text-center text-3xl font-bold my-5">New Task Create</h3>
                     <form onSubmit={handleSubmit(onSubmit)} className=" font-medium p-6 border shadow-2xl">
 

@@ -6,6 +6,7 @@ import { HiPencilAlt } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import NoTask from "../../Shared/NoTask";
 
 const TaskManagement = () => {
     const myAxios = useAxios();
@@ -56,7 +57,7 @@ const TaskManagement = () => {
             <h3 className="text-2xl text-center font-semibold my-3">Task Manage</h3>
             <div className="my-5 px-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                 {
-                    tasks?.map(item => <div key={item._id} className="bg-base-300 px-4 pb-4">
+                  tasks.length ? tasks?.map(item => <div data-aos="flip-left" data-aos-duration="2400" key={item._id} className="bg-base-300 px-4 pb-4">
                         <div className="flex justify-between items-center my-3">
                             <h2 className="text-lg text-center font-semibold my-1">{item?.title}</h2>
                             <p onClick={()=>deleteTask(item._id)} className="text-2xl"><IoClose></IoClose></p>
@@ -72,6 +73,8 @@ const TaskManagement = () => {
                             </Link>
                         </div>
                     </div>)
+                    :
+                    <NoTask></NoTask>
                 }
             </div>
         </div>

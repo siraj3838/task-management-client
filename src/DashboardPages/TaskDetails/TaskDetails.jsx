@@ -90,7 +90,7 @@ const TaskDetails = () => {
                     <h3 className="text-2xl text-center font-semibold my-3">Task</h3>
                     <div className="my-5 px-5 grid gap-5">
                         {
-                         tasks.length ?   tasks?.map(item => <div key={item._id} className="bg-base-300 p-4">
+                         tasks.length ?   tasks?.map(item => <div data-aos="flip-left" data-aos-duration="2400" key={item._id} className="bg-base-300 p-4">
                                 <div className="grid grid-cols-6 items-center my-3">
                                     <h2 className="text-lg text-center col-span-5 font-semibold my-1">{item?.title}</h2>
                                     <p onClick={() => goToOngoing(item)}><FaArrowRightLong></FaArrowRightLong></p>
@@ -110,7 +110,7 @@ const TaskDetails = () => {
                     <h3 className="text-2xl text-center font-semibold my-3">Ongoing</h3>
                     <div className="my-5 px-5 grid gap-5">
                         {
-                          ongoings.length ?  ongoings?.map(item => <div key={item._id} className="bg-base-300 p-4">
+                          ongoings.length ?  ongoings?.map(item => <div data-aos="flip-left" data-aos-duration="2400" key={item._id} className="bg-base-300 p-4">
                                 <div className="grid grid-cols-6 items-center my-3">
                                     <h2 className="text-lg text-center col-span-5 font-semibold my-1">{item?.title}</h2>
                                     <p onClick={() => goToComplete(item)}><FaArrowRightLong></FaArrowRightLong></p>
@@ -130,7 +130,7 @@ const TaskDetails = () => {
                     <h3 className="text-2xl text-center font-semibold my-3">Complete</h3>
                     <div className="my-5 px-5 grid gap-5">
                         {
-                          completes.length ? completes?.map(item => <div key={item._id} className="bg-base-300 p-4">
+                          completes.length ? completes?.map(item => <div data-aos="flip-left" data-aos-duration="2400" key={item._id} className="bg-base-300 p-4">
                                 <div className="flex justify-around items-center my-3 px-5">
                                     <h2 className="text-lg text-center font-semibold my-1">{item?.title}</h2>
                                     <p className="text-orange-600 font-semibold">Completed</p>

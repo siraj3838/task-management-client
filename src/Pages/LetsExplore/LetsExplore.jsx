@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SocialLogin from "../../Shared/SocialLogin";
-import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm()
@@ -35,11 +35,11 @@ const Login = () => {
     return (
         <div>
             <Helmet>
-                <title>GYMSTER || Login</title>
+                <title>DevTown || Login</title>
             </Helmet>
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/fHSMVpC/360-F-113657105-Bktota7-Bz-Q5c-EUc-Zb4l0-D4q-SD2-Sw08-P2.jpg)' }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/gWDFNrx/header-en80.webp)' }}>
                 <div className="hero-overlay bg-opacity-80"></div>
-                <div className="lg:ml-[600px] lg:mt-24">
+                <div className="lg:ml-[600px] lg:mt-10">
                     <div>
                         {/* login */}
 

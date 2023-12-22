@@ -1,11 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import { useContext } from "react";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
     const navList = <>
         <NavLink
             to="/"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "btn hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 btn btn-outline hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
+                isPending ? "pending" : isActive ? " hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
             }
         >
             Home
@@ -13,21 +17,35 @@ const Navbar = () => {
         <NavLink
             to="/about"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "btn hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 btn btn-outline hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
+                isPending ? "pending" : isActive ? " hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2  hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
             }
         >
             About
         </NavLink>
-        <NavLink
-            to="/contact"
+        { user ? <NavLink
+            to="dashboard/taskDetails"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "btn hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 btn btn-outline hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
+                isPending ? "pending" : isActive ? " hover:bg-[#eb8d22ec] bg-[#eb8d22ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-white font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md" : " hover:scale-110 transition-all font-bold text-[#eb8d22ec] mt-2 hover:bg-transparent hover:text-[#eb8d22ec] duration-400"
             }
         >
-            Contact
-        </NavLink>
+            Task Dashboard
+        </NavLink> 
+        :
+        ''
+        }
 
     </>
+
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                toast.success('Logged Out Successfully')
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
     return (
         <div className="">
             <div className="navbar px-5 mx-auto fixed z-10 max-w-screen-2xl mb-10 top-0">
@@ -54,9 +72,17 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end hidden md:flex">
-                    <Link className="/letsExplore">
-                        <button className="hover:bg-[#b69e4aec] bg-[#edc843ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-black font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md">Let’s Explore</button>
-                    </Link>
+                    {
+                        user?.email ? <div className="flex justify-center items-center gap-2 md:gap-10 lg:gap-5">
+                            <h2 className="text-xl font-semibold text-[#eb8d22ec] hover:text-[#4f79c8] cursor-pointer">{user?.displayName}</h2>
+                            <button onClick={handleLogout} className="hover:bg-[#b69e4aec] bg-[#edc843ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-black font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md">Log Out</button>
+                            <img className="w-16 h-16 rounded-full" src={user?.photoURL}></img>
+                        </div>
+                            :
+                            <Link to={'/letsExplore'}>
+                                <button className="hover:bg-[#b69e4aec] bg-[#edc843ec] border-0 border-b-4 hover:border-gray-600 border-gray-600 text-black font-semibold hover:scale-110 duration-400 transition-all py-2 px-5 rounded-md">Let’s Explore</button>
+                            </Link>
+                    }
                 </div>
             </div>
         </div>
